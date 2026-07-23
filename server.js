@@ -6,6 +6,8 @@ import morgan from "morgan";
 import authRoutes from "./routes/auth.routes.js";
 import leadRoutes from "./routes/lead.routes.js";
 import contactRoutes from "./routes/contact.routes.js";
+import taskRoutes from "./routes/task.routes.js";
+import noteRoutes from "./routes/note.routes.js";
 
 import connectDB from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/error.middleware.js";
@@ -33,6 +35,8 @@ app.get("/api", (req, res) =>
 app.use("/api/auth", authRoutes);
 app.use("/api/leads", leadRoutes);
 app.use("/api/contacts", contactRoutes);
+app.use("/api/tasks", taskRoutes);
+app.use("/api/notes", noteRoutes);
 
 /* ----------------------------- Error handling (last) ----------------------------- */
 app.use(notFound);
