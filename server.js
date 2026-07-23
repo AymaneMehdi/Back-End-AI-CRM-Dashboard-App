@@ -5,6 +5,7 @@ import morgan from "morgan";
 
 import authRoutes from "./routes/auth.routes.js";
 import leadRoutes from "./routes/lead.routes.js";
+import contactRoutes from "./routes/contact.routes.js";
 
 import connectDB from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/error.middleware.js";
@@ -31,6 +32,7 @@ app.get("/api", (req, res) =>
 
 app.use("/api/auth", authRoutes);
 app.use("/api/leads", leadRoutes);
+app.use("/api/contacts", contactRoutes);
 
 /* ----------------------------- Error handling (last) ----------------------------- */
 app.use(notFound);
