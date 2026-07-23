@@ -3,6 +3,8 @@ import express from "express";
 import cors from "cors";
 import morgan from "morgan";
 
+import authRoutes from "./routes/auth.routes.js";
+
 import connectDB from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/error.middleware.js";
 
@@ -25,6 +27,8 @@ if (process.env.NODE_ENV !== "production") app.use(morgan("dev"));
 app.get("/api", (req, res) =>
   res.json({ success: true, status: "ok", service: "CRM API" })
 );
+
+app.use("/api/auth", authRoutes);
 
 /* ----------------------------- Error handling (last) ----------------------------- */
 app.use(notFound);
