@@ -4,6 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 
 import authRoutes from "./routes/auth.routes.js";
+import leadRoutes from "./routes/lead.routes.js";
 
 import connectDB from "./config/db.js";
 import { notFound, errorHandler } from "./middleware/error.middleware.js";
@@ -29,6 +30,7 @@ app.get("/api", (req, res) =>
 );
 
 app.use("/api/auth", authRoutes);
+app.use("/api/leads", leadRoutes);
 
 /* ----------------------------- Error handling (last) ----------------------------- */
 app.use(notFound);
