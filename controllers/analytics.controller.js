@@ -76,3 +76,23 @@ export const getOverview = asyncHandler(async (req, res) => {
     recentLeads,
   });
 });
+
+export const lastSixMonths = () => {
+  const labels = [
+    "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",
+  ];
+
+  const now = new Date();
+  const out = [];
+
+  for (let i = 5; i >= 0; i--) {
+    const d = new Date(now.getFullYear(), now.getMonth() - i, 1);
+    out.push({
+      key: `${d.getFullYear()}-${d.getMonth()}`,
+      label: labels[d.getMonth()],
+    });
+  }
+
+  return out;
+};
